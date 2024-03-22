@@ -3,7 +3,7 @@ interface Student {
   age?: number;
 }
 
-const setStudentAgeApi = (student: Student, age: number) => {
+const setStudentAgeApi = (student: Student, age: number): void => {
   //async code below
   console.log('1. Starting ..');
   setTimeout(() => {
