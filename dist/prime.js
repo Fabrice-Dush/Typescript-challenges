@@ -1,12 +1,11 @@
 "use strict";
 const isPrime = function (arr) {
     let primeArr = [];
-    // if (number === 1 || number < 1) return false;
     for (let i = 0; i < arr.length; i++) {
         let count = 0;
-        for (let j = arr[i]; j >= 1; i--) {
-            if (arr[i] % i === 0)
-                ++count;
+        for (let j = arr[i]; j >= 1; j--) {
+            if (arr[i] % j === 0)
+                count = count + 1;
         }
         if (count === 2)
             primeArr.push(arr[i]);
