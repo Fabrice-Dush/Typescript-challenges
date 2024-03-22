@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 const reverseArr = function (numberArr) {
-    let temp;
-    const length = numberArr.length - 1;
-    for (let i = 0; i < Math.floor(numberArr.length / 2); i++) {
-        temp = numberArr[i];
-        numberArr[i] = numberArr[length - i];
-        numberArr[numberArr.length - i - 1] = temp;
-    }
-    return numberArr;
+  let temp;
+  const length = numberArr.length - 1;
+  for (let i = 0; i < Math.floor(numberArr.length / 2); i++) {
+    temp = numberArr[i];
+    numberArr[i] = numberArr[length - i];
+    numberArr[numberArr.length - i - 1] = temp;
+  }
+  return numberArr;
 };
 console.log(reverseArr([1, 2, 3]));
 console.log(reverseArr([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
