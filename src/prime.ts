@@ -1,16 +1,17 @@
-const isPrime = function (number: number): boolean {
-  let count: number = 0;
-  if (number === 1 || number < 1) return false;
-  for (let i: number = number; i >= 1; i--) {
-    if (number % i === 0) count = count + 1;
+type numbers = number[];
+
+const isPrime = function (arr: numbers): numbers {
+  let primeArr: number[] = [];
+  // if (number === 1 || number < 1) return false;
+  for (let i: number = 0; i < arr.length; i++) {
+    let count: number = 0;
+    for (let j: number = arr[i]; j >= 1; i--) {
+      if (arr[i] % i === 0) ++count;
+    }
+
+    if (count === 2) primeArr.push(arr[i]);
   }
-  if (count === 2) return true;
-  else return false;
+
+  return primeArr;
 };
-console.log(isPrime(2));
-console.log(isPrime(3));
-console.log(isPrime(6));
-console.log(isPrime(10));
-console.log(isPrime(11));
-console.log(isPrime(23));
-console.log(isPrime(31));
+console.log(isPrime([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
