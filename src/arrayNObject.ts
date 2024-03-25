@@ -1,5 +1,5 @@
 interface User {
-  secondName: string;
+  ['second-name']: string;
   age: number;
 }
 
@@ -8,24 +8,12 @@ interface ActualUser {
 }
 
 interface Users {
-  female: User[];
-  male: User[];
+  females: ActualUser[];
+  males: ActualUser[];
 }
 
-const newObj: ActualUser = { firstName: { secondName: 'fabrice', age: 21 } };
-const users: Users = {
-  female: [
-    { secondName: 'fabrice', age: 22 },
-    { secondName: 'gad', age: 21 },
-  ],
-  male: [
-    { secondName: 'anne', age: 16 },
-    { secondName: 'queen', age: 19 },
-  ],
-};
-
-const formatObject = function (arr: string[]): void {
-  let finalObj = {
+const formatObject = function (arr: string[]): Users {
+  const finalObj: Users = {
     females: [],
     males: [],
   };
@@ -34,23 +22,23 @@ const formatObject = function (arr: string[]): void {
     const [fullName, age, gender] = arr[i].split(/\,/);
     const [firstName, lastName] = fullName.split(' ');
     const newObj: ActualUser = {
-      [firstName]: { secondName: lastName, age: +age },
+      [firstName]: { ['second-name']: lastName, age: +age },
     };
     gender.trim().startsWith('male')
       ? finalObj.males.push(newObj)
       : finalObj.females.push(newObj);
   }
-  console.log(finalObj);
+  return finalObj;
 };
 
 const people = [
-  'Patrick wyne, 30, male',
-  'lil wyne, 32, male',
+  'joseph salton, 21, male',
+  'david datch, 32, male',
   'Eric mimi, 21, female',
-  'Dodos deck, 21,male',
+  'Fabrice Dushimimana, 21,male',
   'Mary Cooper, 21, female',
   'Patrick wyne, 33, male',
-  'Patrick wyne, 10,male',
-  'Patrick wyne, 40,male',
+  'Solange Ihirwe, 20,female',
+  'saddock patrick, 21,male',
 ];
-formatObject(people);
+console.log(formatObject(people));
